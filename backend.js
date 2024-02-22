@@ -5,7 +5,11 @@ const cors = require("cors");
 const league = require("./league.js");
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: '*',
+  methods: ['POST', 'GET'],
+  credentials: true
+}));
 
 mongoose.connect("mongodb+srv://mohamedhesham3324:jWRroC6l7yRfIghC@cluster0.idx6gmw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0").then(() => {
   console.log("connected to mongoose");
